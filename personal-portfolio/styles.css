@@ -1,8 +1,12 @@
+/* Normalization & Fonts */
 body {
     font-family: "Karla", sans-serif;
     font-optical-sizing: auto;
     font-weight: 300;
     font-style: normal;
+    padding: 0;
+    margin: 0;
+    background-color: #fcfcfc;
 }
 
 h1,
@@ -15,4 +19,31 @@ h6 {
     font-optical-sizing: auto;
     font-weight: 600;
     font-style: normal;
+}
+
+header {
+    width: 100%;
+}
+
+.content-header {
+    padding: 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+section {
+    padding: 1.5rem;
+    max-width: 1200px;
+}
+
+.project {
 }
