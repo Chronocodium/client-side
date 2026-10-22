@@ -1,11 +1,27 @@
-/* Normalization & Fonts */
+/* ~~~ Normalization ~~~ */
+
+html,
+body,
+header,
+main,
+footer,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    padding: 0;
+    margin: 0;
+}
+
+/* ~~~ Fonts ~~~ */
+
 body {
     font-family: "Karla", sans-serif;
     font-optical-sizing: auto;
     font-weight: 300;
     font-style: normal;
-    padding: 0;
-    margin: 0;
     background-color: #fcfcfc;
 }
 
@@ -21,18 +37,37 @@ h6 {
     font-style: normal;
 }
 
+/* ~~~ Header ~~~ */
+
 header {
-    width: 100%;
+    width: auto;
+    background-color: #bdbcc2;
 }
 
 .content-header {
+    display: flex;
     padding: 1.5rem;
     max-width: 1200px;
     margin: 0 auto;
-    display: flex;
     align-items: center;
     justify-content: space-between;
 }
+
+.content-header h1 {
+    font-size: 2rem;
+}
+
+.socials {
+    display: flex;
+    gap: 1rem;
+}
+
+.socials a {
+    font-size: 1.5rem;
+    color: #8c210e;
+}
+
+/* ~~~ Main Content ~~~ */
 
 main {
     display: flex;
@@ -45,5 +80,23 @@ section {
     max-width: 1200px;
 }
 
+/* Hero Section */
+
+/* Projects Section */
+
+/* Bio Section */
+
+/* Experience Section */
+
+/* Contact Section */
+
+ul:has(li.project) {
+    margin: 0;
+    padding: 0;
+}
+
 .project {
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
