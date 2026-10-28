@@ -221,4 +221,8 @@ button {
     .input-row {
         flex-direction: column;
     }
+
+    #projects ul {
+        padding-left: 0;
+    }
 }
