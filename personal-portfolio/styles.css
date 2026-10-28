@@ -1,13 +1,56 @@
-/* Normalization & Fonts */
-body {
-    font-family: "Karla", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 300;
-    font-style: normal;
+/*  ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        Normalization
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~  */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html,
+body,
+header,
+main,
+footer,
+blockquote,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+ol {
     padding: 0;
     margin: 0;
-    background-color: #fcfcfc;
 }
+
+ul,
+ol {
+    list-style: none;
+}
+
+img,
+video,
+canvas {
+    display: block;
+    max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+}
+
+/*  ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        Base Styles
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~  */
 
 h1,
 h2,
@@ -16,34 +59,166 @@ h4,
 h5,
 h6 {
     font-family: "Montserrat", sans-serif;
-    font-optical-sizing: auto;
     font-weight: 600;
+    line-height: 1.5;
+}
+
+body {
+    font-family: "Karla", sans-serif;
+    font-weight: 300;
+    line-height: 1.5;
+    font-optical-sizing: auto;
     font-style: normal;
+    color: #363c40;
+    background-color: #f5f2f7;
 }
 
 header {
-    width: 100%;
-}
-
-.content-header {
-    padding: 1.5rem;
-    max-width: 1200px;
-    margin: 0 auto;
+    color: #f5f2f7;
+    background-color: #4c2882;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: space-between;
 }
 
 main {
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 2.5rem;
+    padding: 2.5rem 1.5rem 3.5rem;
 }
 
 section {
-    padding: 1.5rem;
+    width: 100%;
     max-width: 1200px;
 }
 
+footer {
+    color: #f5f2f7;
+    background-color: #363c40;
+    padding: 1.5rem;
+    text-align: center;
+}
+
+/*  ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        Custom Styles
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~  */
+
+/*  Header  */
+
+.content-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    padding: 1.5rem;
+}
+
+.socials {
+    display: flex;
+    gap: 1rem;
+}
+
+.socials a {
+    color: #f5f2f7;
+    font-size: 1.5rem;
+}
+
+h2 {
+    padding: 1rem 0;
+}
+
+/*  Bio  */
+
+.content-bio {
+    display: flex;
+    gap: 1rem;
+}
+
+.profile-img {
+    width: 300px;
+    max-width: 100%;
+    border-radius: 8px;
+}
+
+/*  Projects  */
+
+#projects {
+    background-color: #eae5f0;
+    padding: 1.5rem;
+    border-radius: 8px;
+}
+
+#projects ul {
+    padding-left: 1.5rem;
+}
+
 .project {
+    margin-bottom: 1.5rem;
+}
+
+.project a {
+    color: #4c2882;
+}
+
+/*  Contact  */
+
+#contact {
+    background-color: #f5f2f7;
+}
+
+.input-row {
+    display: flex;
+    gap: 1rem;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+input,
+select,
+textarea {
+    padding: 0.75rem;
+    border: none;
+    border-radius: 8px;
+    font-family: "Karla", sans-serif;
+}
+
+input,
+select {
+    height: 48px;
+}
+
+textarea {
+    min-height: 120px;
+}
+
+button {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    color: #f5f2f7;
+    background-color: #4c2882;
+    font-family: "Montserrat", sans-serif;
+    cursor: pointer;
+}
+
+/*  Responsive  */
+
+@media (max-width: 700px) {
+    .content-bio,
+    .input-row {
+        flex-direction: column;
+    }
 }

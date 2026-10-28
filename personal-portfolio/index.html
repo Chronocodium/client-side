@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Chase's Portfolio</title>
+        <title>Chase B. Snow</title>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
@@ -20,14 +20,18 @@
     <body>
         <header>
             <div class="content-header">
-                <h1>Chase's Portfolio</h1>
-                <div id="socials">
+                <h1>Chase B. Snow</h1>
+                <div class="socials">
                     <a
                         href="https://www.linkedin.com/in/chasebsnow"
                         target="_blank"
+                        rel="noopener noreferrer"
                         ><i class="fa fa-linkedin" aria-hidden="true"></i
                     ></a>
-                    <a href="https://github.com/Chronocodium" target="_blank"
+                    <a
+                        href="https://github.com/Chronocodium"
+                        target="_blank"
+                        rel="noopener noreferrer"
                         ><i class="fa fa-github" aria-hidden="true"></i
                     ></a>
                 </div>
@@ -36,25 +40,28 @@
         <main>
             <section id="bio">
                 <h2>Bio</h2>
-                <img
-                    src="images/chase-costa-rica-onstage.jpg"
-                    alt="Chase speaking at a Costa Rica mastermind."
-                />
-                <p>
-                    I design and build digital products and the systems around
-                    them, from product strategy and UI/UX through full-stack
-                    development, cloud infrastructure, data, customer
-                    acquisition, attribution, automation, analytics, and
-                    optimization. I like understanding the whole system, not
-                    just one layer of it.
-                </p>
+                <div class="content-bio">
+                    <img
+                        class="profile-img"
+                        src="images/chase-costa-rica-onstage.jpg"
+                        alt="Chase speaking at a Costa Rica mastermind."
+                    />
+                    <p>
+                        I design and build digital products and the systems
+                        around them, from product strategy and UI/UX through
+                        full-stack development, cloud infrastructure, data,
+                        customer acquisition, attribution, automation,
+                        analytics, and optimization. I like understanding the
+                        whole system, not just one layer of it.
+                    </p>
+                </div>
             </section>
             <section id="projects">
                 <h2>Projects</h2>
             </section>
             <section id="contact">
                 <form method="POST">
-                    <h2>Contact Us</h2>
+                    <h2>Contact Me</h2>
                     <div class="input-row">
                         <div class="input-group">
                             <label for="first-name">First Name</label>
@@ -80,7 +87,7 @@
                     <div class="input-row">
                         <div class="input-group">
                             <label for="subject">Subject</label>
-                            <select id="subject">
+                            <select id="subject" name="subject">
                                 <option value="inquiry" selected>
                                     Business Inquiry
                                 </option>
