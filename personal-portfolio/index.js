@@ -38,6 +38,11 @@ projects.forEach((project) => {
     const descriptionParagraph = document.createElement("p");
     descriptionParagraph.textContent = descriptionText;
 
+    titleURL.addEventListener("click", (event) => {
+        event.preventDefault();
+        descriptionParagraph.classList.toggle("active");
+    });
+
     const projectItem = document.createElement("li");
     projectItem.classList.add("project");
 

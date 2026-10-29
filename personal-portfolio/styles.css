@@ -163,6 +163,16 @@ h2 {
     color: #4c2882;
 }
 
+.project p {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+
+.project p.active {
+    max-height: 300px;
+}
+
 /*  Contact  */
 
 #contact {
