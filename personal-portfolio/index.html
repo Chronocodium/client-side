@@ -59,9 +59,76 @@
             <section id="projects">
                 <h2>Projects</h2>
             </section>
+            <section id="references">
+                <h2>References</h2>
+                <h3>
+                    Average Rating:
+                    <span id="average-rating"></span>
+                </h3>
+                <ul id="references-list"></ul>
+                <form id="reference-form" method="POST">
+                    <h3>Reference</h3>
+                    <div class="input-row">
+                        <div class="input-group">
+                            <label for="reference-name">Reference Name</label>
+                            <input
+                                id="reference-name"
+                                name="reference-name"
+                                type="text"
+                                placeholder="Enter reference name"
+                                required
+                            />
+                        </div>
+                        <div class="input-group">
+                            <label for="reference-email">Reference Email</label>
+                            <input
+                                id="reference-email"
+                                name="reference-email"
+                                type="email"
+                                placeholder="Enter reference email"
+                                required
+                            />
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <label for="company-name"
+                            >Company Name (Optional)</label
+                        >
+                        <input
+                            id="company-name"
+                            name="company-name"
+                            type="text"
+                            placeholder="Enter company name"
+                        />
+                    </div>
+                    <h3>Testimonial</h3>
+                    <div class="input-group">
+                        <label for="rating">Rating (Optional)</label>
+                        <input
+                            id="rating"
+                            name="rating"
+                            type="number"
+                            min="0"
+                            max="5"
+                            placeholder="Enter a rating from 0 to 5"
+                        />
+                    </div>
+                    <div class="input-group">
+                        <label for="comment">Comment (Optional)</label>
+                        <textarea
+                            id="comment"
+                            name="comment"
+                            placeholder="Enter your comment"
+                        ></textarea>
+                    </div>
+                    <button id="create-reference" type="submit">
+                        Create Reference
+                    </button>
+                </form>
+            </section>
             <section id="contact">
+                <h2>Contact Me</h2>
                 <form method="POST">
-                    <h2>Contact Me</h2>
                     <div class="input-row">
                         <div class="input-group">
                             <label for="first-name">First Name</label>
@@ -117,7 +184,7 @@
                             required
                         ></textarea>
                     </div>
-                    <button type="submit">Contact Me</button>
+                    <button id="contact-me" type="submit">Contact Me</button>
                 </form>
             </section>
         </main>
