@@ -1,3 +1,7 @@
+/*  ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        Projects Section
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~  */
+
 const projects = [
     {
         title: "Agency Intelligence Platform",
@@ -62,28 +66,115 @@ class DatabaseObject {
     }
 }
 
-/*  Seed Data  */
+/*  ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        Storing References
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~  */
 
-const references = [
-    {
-        id: 1,
-        name: "Woodrow Hamilton",
-        company: "Hamilton Inc.",
-        email: "woodie3@hamiltoninc.com",
-    },
-    {
-        id: 2,
-        name: "Mason Matheson",
-        company: "Pro Installers",
-        email: "notmason@proinstallers.com",
-    },
-    {
-        id: 3,
-        name: "Harry Zahn",
-        company: "Crystal Park Digital",
-        email: "harryz@cpdigital.com",
-    },
-];
+class Reference extends DatabaseObject {
+    constructor(params) {
+        super();
+
+        const { id, name, company, email } = params;
+
+        this.id = id;
+        this.name = name;
+        this.company = company;
+        this.email = email;
+    }
+
+    static create(params) {
+        return new Reference(params);
+    }
+}
+
+/*  Reference Data Access Object  */
+
+class ReferenceDAO {
+    static seeds = [
+        {
+            id: 1,
+            name: "Woodrow Hamilton",
+            company: "Hamilton Inc.",
+            email: "woodie3@hamiltoninc.com",
+        },
+        {
+            id: 2,
+            name: "Mason Matheson",
+            company: "Pro Installers",
+            email: "notmason@proinstallers.com",
+        },
+        {
+            id: 3,
+            name: "Harry Zahn",
+            company: "Crystal Park Digital",
+            email: "harryz@cpdigital.com",
+        },
+    ];
+
+    getAll() {
+        throw new Error("Not Implemented");
+    }
+
+    create(reference) {
+        throw new Error("Not Implemented");
+    }
+}
+
+/*  Reference Session Storage  */
+
+class SessionStorageReferenceDAO extends ReferenceDAO {
+    constructor() {
+        super();
+        this.database = sessionStorage;
+    }
+
+    getAll() {
+        const referencesAsJSON = this.database.getItem("references");
+
+        const referencesData = referencesAsJSON
+            ? JSON.parse(referencesAsJSON)
+            : ReferenceDAO.seeds;
+
+        return referencesData.map((referenceData) => {
+            return Reference.create(referenceData);
+        });
+    }
+
+    create(reference) {
+        const existingReferences = this.getAll();
+
+        existingReferences.push(reference);
+
+        this.database.setItem("references", JSON.stringify(existingReferences));
+    }
+}
+
+/* Reference Cookie Storage */
+
+class CookieStorageReferenceDAO extends ReferenceDAO {
+    getAll() {
+        const cookieValue = document.cookie
+            .split("; ")
+            .find((row) => row.startsWith("references="))
+            ?.split("=")[1];
+
+        const referencesData = cookieValue
+            ? JSON.parse(cookieValue)
+            : ReferenceDAO.seeds;
+
+        return referencesData.map((referenceData) => {
+            return Reference.create(referenceData);
+        });
+    }
+
+    create(reference) {
+        const existingReferences = this.getAll();
+
+        existingReferences.push(reference);
+
+        document.cookie = `references=${JSON.stringify(existingReferences)};`;
+    }
+}
 
 /*  ~~~~~~~~~~~~~~~~~~~~~~~~~~~
         Storing Testimonials
@@ -129,6 +220,17 @@ class TestimonialDAO {
             rating: 5,
             referenceId: 2,
         },
+        {
+            comment: "I would definitely work with Chase on future projects.",
+            rating: 5,
+            referenceId: 2,
+        },
+        {
+            comment:
+                "My expectations for the project were met, I'm happy with the result.",
+            rating: 4,
+            referenceId: 3,
+        },
     ];
 
     getAll() {
@@ -170,16 +272,56 @@ class SessionStorageTestimonialDAO extends TestimonialDAO {
     }
 }
 
+/* Testimonial Cookie Storage */
+
+class CookieStorageTestimonialDAO extends TestimonialDAO {
+    constructor() {
+        super();
+    }
+
+    getAll() {
+        const cookieValue = document.cookie
+            .split("; ")
+            .find((row) => row.startsWith("testimonials="))
+            ?.split("=")[1];
+
+        const testimonialsData = cookieValue
+            ? JSON.parse(cookieValue)
+            : TestimonialDAO.seeds;
+
+        return testimonialsData.map((testimonialData) => {
+            return Testimonial.create(testimonialData);
+        });
+    }
+
+    create(testimonial) {
+        const existingTestimonials = this.getAll();
+        existingTestimonials.push(testimonial);
+        document.cookie = `testimonials=${JSON.stringify(existingTestimonials)};`;
+    }
+}
+
 /* Create Testimonials Service */
 
 class CreateTestimonialService {
-    constructor(testimonialDao) {
+    constructor(referenceDao, testimonialDao) {
+        this.referenceDao = referenceDao;
         this.testimonialDao = testimonialDao;
     }
 
+    createReference(id, name, company, email) {
+        const reference = Reference.create({ id, name, company, email });
+        this.referenceDao.create(reference);
+        return reference;
+    }
+
     createTestimonial(comment, rating, referenceId) {
-        const testimonialData = { comment, rating, referenceId };
-        this.testimonialDao.create(testimonialData);
+        const testimonial = Testimonial.create({
+            comment,
+            rating,
+            referenceId,
+        });
+        this.testimonialDao.create(testimonial);
     }
 }
 
@@ -187,12 +329,21 @@ class CreateTestimonialService {
         Render Testimonials
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~  */
 
-const testimonialDao = new SessionStorageTestimonialDAO();
+// const referenceDao = new SessionStorageReferenceDAO();
+// const testimonialDao = new SessionStorageTestimonialDAO();
 
-const referencesList = document.getElementById("references-list");
+const referenceDao = new CookieStorageReferenceDAO();
+const testimonialDao = new CookieStorageTestimonialDAO();
+
+const createTestimonialService = new CreateTestimonialService(
+    referenceDao,
+    testimonialDao,
+);
+
+const references = referenceDao.getAll();
 const testimonials = testimonialDao.getAll();
 
-/*  Get Average Rating  */
+/*  Display Average Rating  */
 
 const ratingTotal = testimonials.reduce(
     (total, testimonial) => total + testimonial.rating,
@@ -201,8 +352,11 @@ const ratingTotal = testimonials.reduce(
 const averageRating = ratingTotal / testimonials.length;
 
 const averageRatingDisplay = document.getElementById("average-rating");
-
 averageRatingDisplay.innerText = averageRating.toFixed(1);
+
+/*  Display Reference List and Testimonials  */
+
+const referencesList = document.getElementById("references-list");
 
 for (let i = 0; i < references.length; i++) {
     const referenceLi = document.createElement("li");
@@ -230,3 +384,45 @@ for (let i = 0; i < references.length; i++) {
 
     referencesList.appendChild(referenceLi);
 }
+
+/* Capture Testimonial Form Data */
+
+const referenceForm = document.getElementById("reference-form");
+
+referenceForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    const formData = new FormData(event.target);
+
+    const valueName = formData.get("reference-name");
+    const valueEmail = formData.get("reference-email");
+    const valueCompany = formData.get("company-name");
+    const valueRating = Number(formData.get("rating"));
+    const valueComment = formData.get("comment");
+
+    let reference = references.find(
+        (reference) => reference.email == valueEmail,
+    );
+
+    if (!reference) {
+        const newReferenceId =
+            Math.max(...references.map((reference) => reference.id), 0) + 1;
+
+        reference = createTestimonialService.createReference(
+            newReferenceId,
+            valueName,
+            valueCompany,
+            valueEmail,
+        );
+    }
+
+    if (valueRating !== 0 || valueComment) {
+        createTestimonialService.createTestimonial(
+            valueComment,
+            valueRating,
+            reference.id,
+        );
+    }
+
+    window.location.reload();
+});
