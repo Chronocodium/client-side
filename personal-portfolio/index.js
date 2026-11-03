@@ -24,7 +24,10 @@ const projects = [
 ];
 
 const projectsSection = document.getElementById("projects");
+
 const projectList = document.createElement("ul");
+projectList.setAttribute("class", "flex flex-col gap-4");
+
 projectsSection.appendChild(projectList);
 
 projects.forEach((project) => {
@@ -33,9 +36,11 @@ projects.forEach((project) => {
     const descriptionText = project.description;
 
     const titleHeading = document.createElement("h3");
+    titleHeading.setAttribute("class", "text-lg font-semibold");
     titleHeading.textContent = titleText;
 
     const titleURL = document.createElement("a");
+    titleURL.setAttribute("class", "hover:text-slate-500");
     titleURL.setAttribute("href", urlText);
     titleURL.setAttribute("target", "_blank");
 
@@ -362,6 +367,8 @@ for (let i = 0; i < references.length; i++) {
     const referenceLi = document.createElement("li");
     const referenceData = document.createElement("h3");
     const testimonialList = document.createElement("ul");
+
+    referenceData.setAttribute("class", "text-lg font-semibold");
 
     referenceData.innerText +=
         references[i].name + " at " + references[i].email;

@@ -18,17 +18,19 @@
         <script src="index.js" defer></script>
     </head>
     <body>
-        <header>
-            <div class="content-header">
-                <h1>Chase B. Snow</h1>
-                <div class="socials">
+        <header class="w-full p-4 md:p-8 bg-slate-600 text-slate-200">
+            <div class="flex justify-between mx-auto max-w-[1200px]">
+                <h1 class="text-2xl text-slate-100 font-bold">Chase B. Snow</h1>
+                <div class="flex gap-4 text-xl">
                     <a
+                        class="hover:text-slate-50"
                         href="https://www.linkedin.com/in/chasebsnow"
                         target="_blank"
                         rel="noopener noreferrer"
                         ><i class="fa fa-linkedin" aria-hidden="true"></i
                     ></a>
                     <a
+                        class="hover:text-slate-50"
                         href="https://github.com/Chronocodium"
                         target="_blank"
                         rel="noopener noreferrer"
@@ -37,157 +39,178 @@
                 </div>
             </div>
         </header>
-        <main>
-            <section id="bio">
-                <h2>Bio</h2>
-                <div class="content-bio">
-                    <img
-                        class="profile-img"
-                        src="images/chase-costa-rica-onstage.jpg"
-                        alt="Chase speaking at a Costa Rica mastermind."
-                    />
-                    <p>
-                        I design and build digital products and the systems
-                        around them, from product strategy and UI/UX through
-                        full-stack development, cloud infrastructure, data,
-                        customer acquisition, attribution, automation,
-                        analytics, and optimization. I like understanding the
-                        whole system, not just one layer of it.
-                    </p>
-                </div>
-            </section>
-            <section id="projects">
-                <h2>Projects</h2>
-            </section>
-            <section id="references">
-                <h2>References</h2>
-                <h3>
-                    Average Rating:
-                    <span id="average-rating"></span>
-                </h3>
-                <ul id="references-list"></ul>
-                <form id="reference-form" method="POST">
-                    <h3>Reference</h3>
-                    <div class="input-row">
-                        <div class="input-group">
-                            <label for="reference-name">Reference Name</label>
-                            <input
-                                id="reference-name"
-                                name="reference-name"
-                                type="text"
-                                placeholder="Enter reference name"
-                                required
-                            />
-                        </div>
-                        <div class="input-group">
-                            <label for="reference-email">Reference Email</label>
-                            <input
-                                id="reference-email"
-                                name="reference-email"
-                                type="email"
-                                placeholder="Enter reference email"
-                                required
-                            />
-                        </div>
-                    </div>
-                    <div class="input-group">
-                        <label for="company-name"
-                            >Company Name (Optional)</label
-                        >
-                        <input
-                            id="company-name"
-                            name="company-name"
-                            type="text"
-                            placeholder="Enter company name"
+        <main class="w-full p-4 md:p-8 bg-slate-200 text-slate-800">
+            <div class="flex flex-col gap-4 md:gap-8 mx-auto max-w-[1200px]">
+                <section id="bio">
+                    <h2 class="py-4 text-xl font-bold">Bio</h2>
+                    <div class="flex gap-4 md:gap-8">
+                        <img
+                            class="w-full md:w-80 rounded-xl"
+                            src="images/chase-costa-rica-onstage.jpg"
+                            alt="Chase speaking at a Costa Rica mastermind."
                         />
+                        <p>
+                            I design and build digital products and the systems
+                            around them, from product strategy and UI/UX through
+                            full-stack development, cloud infrastructure, data,
+                            customer acquisition, attribution, automation,
+                            analytics, and optimization. I like understanding
+                            the whole system, not just one layer of it.
+                        </p>
                     </div>
-                    <h3>Testimonial</h3>
-                    <div class="input-group">
-                        <label for="rating">Rating (Optional)</label>
-                        <input
-                            id="rating"
-                            name="rating"
-                            type="number"
-                            min="0"
-                            max="5"
-                            placeholder="Enter a rating from 0 to 5"
-                        />
+                </section>
+                <section id="projects">
+                    <h2 class="py-4 text-xl font-bold">Projects</h2>
+                </section>
+                <section id="references">
+                    <h2 class="py-4 text-xl font-bold">References</h2>
+                    <h3 class="font-semibold pb-4">
+                        Average Rating:
+                        <span id="average-rating"></span>
+                    </h3>
+                    <div class="flex gap-8">
+                        <ul
+                            id="references-list"
+                            class="flex flex-col gap-4"
+                        ></ul>
+                        <form id="reference-form" method="POST">
+                            <div class="flex flex-col gap-4">
+                                <h3 class="font-semibold pb-4">Reference</h3>
+                                <div class="flex gap-4">
+                                    <div class="input-group">
+                                        <label for="reference-name"
+                                            >Reference Name</label
+                                        >
+                                        <input
+                                            id="reference-name"
+                                            name="reference-name"
+                                            type="text"
+                                            placeholder="Enter reference name"
+                                            required
+                                        />
+                                    </div>
+                                    <div class="input-group">
+                                        <label for="reference-email"
+                                            >Reference Email</label
+                                        >
+                                        <input
+                                            id="reference-email"
+                                            name="reference-email"
+                                            type="email"
+                                            placeholder="Enter reference email"
+                                            required
+                                        />
+                                    </div>
+                                </div>
+                                <div class="input-group">
+                                    <label for="company-name"
+                                        >Company Name (Optional)</label
+                                    >
+                                    <input
+                                        id="company-name"
+                                        name="company-name"
+                                        type="text"
+                                        placeholder="Enter company name"
+                                    />
+                                </div>
+                                <h3 class="font-semibold pb-4">Testimonial</h3>
+                                <div class="input-group">
+                                    <label for="rating"
+                                        >Rating (Optional)</label
+                                    >
+                                    <input
+                                        id="rating"
+                                        name="rating"
+                                        type="number"
+                                        min="0"
+                                        max="5"
+                                        placeholder="Enter a rating from 0 to 5"
+                                    />
+                                </div>
+                                <div class="input-group">
+                                    <label for="comment"
+                                        >Comment (Optional)</label
+                                    >
+                                    <textarea
+                                        id="comment"
+                                        name="comment"
+                                        placeholder="Enter your comment"
+                                    ></textarea>
+                                </div>
+                                <button id="create-reference" type="submit">
+                                    Create Reference
+                                </button>
+                            </div>
+                        </form>
                     </div>
-                    <div class="input-group">
-                        <label for="comment">Comment (Optional)</label>
-                        <textarea
-                            id="comment"
-                            name="comment"
-                            placeholder="Enter your comment"
-                        ></textarea>
-                    </div>
-                    <button id="create-reference" type="submit">
-                        Create Reference
-                    </button>
-                </form>
-            </section>
-            <section id="contact">
-                <h2>Contact Me</h2>
-                <form method="POST">
-                    <div class="input-row">
+                </section>
+                <section id="contact">
+                    <h2 class="py-4 text-xl">Contact Me</h2>
+                    <form method="POST">
+                        <div class="input-row">
+                            <div class="input-group">
+                                <label for="first-name">First Name</label>
+                                <input
+                                    id="first-name"
+                                    type="text"
+                                    name="first-name"
+                                    placeholder="Enter your first name"
+                                    required
+                                />
+                            </div>
+                            <div class="input-group">
+                                <label for="last-name">Last Name</label>
+                                <input
+                                    id="last-name"
+                                    type="text"
+                                    name="last-name"
+                                    placeholder="Enter your last name"
+                                    required
+                                />
+                            </div>
+                        </div>
+                        <div class="input-row">
+                            <div class="input-group">
+                                <label for="subject">Subject</label>
+                                <select id="subject" name="subject">
+                                    <option value="inquiry" selected>
+                                        Business Inquiry
+                                    </option>
+                                    <option value="feedback">Feedback</option>
+                                    <option value="question">
+                                        General Question
+                                    </option>
+                                </select>
+                            </div>
+                            <div class="input-group">
+                                <label for="email">Email</label>
+                                <input
+                                    id="email"
+                                    type="email"
+                                    name="email"
+                                    placeholder="Enter your email"
+                                    required
+                                />
+                            </div>
+                        </div>
                         <div class="input-group">
-                            <label for="first-name">First Name</label>
-                            <input
-                                id="first-name"
-                                type="text"
-                                name="first-name"
-                                placeholder="Enter your first name"
+                            <label for="message">Message</label>
+                            <textarea
+                                id="message"
+                                name="message"
+                                placeholder="Enter your message"
                                 required
-                            />
+                            ></textarea>
                         </div>
-                        <div class="input-group">
-                            <label for="last-name">Last Name</label>
-                            <input
-                                id="last-name"
-                                type="text"
-                                name="last-name"
-                                placeholder="Enter your last name"
-                                required
-                            />
-                        </div>
-                    </div>
-                    <div class="input-row">
-                        <div class="input-group">
-                            <label for="subject">Subject</label>
-                            <select id="subject" name="subject">
-                                <option value="inquiry" selected>
-                                    Business Inquiry
-                                </option>
-                                <option value="feedback">Feedback</option>
-                                <option value="question">
-                                    General Question
-                                </option>
-                            </select>
-                        </div>
-                        <div class="input-group">
-                            <label for="email">Email</label>
-                            <input
-                                id="email"
-                                type="email"
-                                name="email"
-                                placeholder="Enter your email"
-                                required
-                            />
-                        </div>
-                    </div>
-                    <div class="input-group">
-                        <label for="message">Message</label>
-                        <textarea
-                            id="message"
-                            name="message"
-                            placeholder="Enter your message"
-                            required
-                        ></textarea>
-                    </div>
-                    <button id="contact-me" type="submit">Contact Me</button>
-                </form>
-            </section>
+                        <button id="contact-me" type="submit">
+                            Contact Me
+                        </button>
+                    </form>
+                </section>
+            </div>
         </main>
-        <footer><p>&copy; Copyright 2026</p></footer>
+        <footer class="flex justify-center p-4 bg-slate-700 text-slate-200">
+            <p>&copy; Copyright 2026</p>
+        </footer>
     </body>
 </html>
