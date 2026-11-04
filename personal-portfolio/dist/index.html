@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Chase B. Snow</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+            rel="stylesheet"
+        />
+        <script
+            src="https://kit.fontawesome.com/ae0b00978d.js"
+            crossorigin="anonymous"
+        ></script>
+        <script src="index.js" defer></script>
+      <link rel="stylesheet" crossorigin href="/assets/index-B9hBosGO.css">
+    </head>
+    <body>
+        <header class="w-full p-4 md:p-8 bg-slate-600 text-slate-200">
+            <div class="flex justify-between mx-auto max-w-[1200px]">
+                <h1 class="text-2xl text-slate-100 font-bold">Chase B. Snow</h1>
+                <div class="flex gap-4 text-xl">
+                    <a
+                        class="hover:text-slate-50"
+                        href="https://www.linkedin.com/in/chasebsnow"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        ><i class="fa fa-linkedin" aria-hidden="true"></i
+                    ></a>
+                    <a
+                        class="hover:text-slate-50"
+                        href="https://github.com/Chronocodium"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        ><i class="fa fa-github" aria-hidden="true"></i
+                    ></a>
+                </div>
+            </div>
+        </header>
+        <main class="w-full p-4 pb-16 md:p-16 bg-slate-200 text-slate-800">
+            <div class="flex flex-col gap-4 md:gap-8 mx-auto max-w-[1200px]">
+                <section id="bio">
+                    <h2 class="py-4 text-xl font-bold">Bio</h2>
+                    <div class="flex gap-4 md:gap-8">
+                        <img
+                            class="w-full md:w-80 rounded-xl"
+                            src="/assets/chase-costa-rica-onstage-CgcHUKPC.jpg"
+                            alt="Chase speaking at a Costa Rica mastermind."
+                        />
+                        <p>
+                            I design and build digital products and the systems
+                            around them, from product strategy and UI/UX through
+                            full-stack development, cloud infrastructure, data,
+                            customer acquisition, attribution, automation,
+                            analytics, and optimization. I like understanding
+                            the whole system, not just one layer of it.
+                        </p>
+                    </div>
+                </section>
+                <section id="projects">
+                    <h2 class="py-4 text-xl font-bold">Projects</h2>
+                </section>
+                <section id="references">
+                    <h2 class="py-4 text-xl font-bold">References</h2>
+                    <h3
+                        class="text-sm font-semibold italic text-slate-600 pb-4"
+                    >
+                        Average Rating:
+                        <span id="average-rating"></span>
+                    </h3>
+                    <div class="flex flex-col gap-8 md:flex-row">
+                        <ul
+                            id="references-list"
+                            class="flex flex-1 flex-col gap-4"
+                        ></ul>
+                        <form id="reference-form" class="flex-1" method="POST">
+                            <div class="flex flex-col gap-4">
+                                <h3 class="font-semibold pb-4">Reference</h3>
+                                <div class="flex gap-4">
+                                    <div class="flex flex-1 flex-col gap-2">
+                                        <label
+                                            class="text-sm text-slate-600"
+                                            for="reference-name"
+                                            >Reference Name</label
+                                        >
+                                        <input
+                                            id="reference-name"
+                                            class="rounded-md p-2 bg-slate-100 outline-1 outline-slate-300 transition-all duration-200 focus:outline-slate-400 focus:ring-2 focus:ring-slate-50"
+                                            name="reference-name"
+                                            type="text"
+                                            placeholder="Enter reference name"
+                                            required
+                                        />
+                                    </div>
+                                    <div class="flex flex-1 flex-col gap-2">
+                                        <label
+                                            class="text-sm text-slate-600"
+                                            for="reference-email"
+                                            >Reference Email</label
+                                        >
+                                        <input
+                                            id="reference-email"
+                                            class="rounded-md p-2 bg-slate-100 outline-1 outline-slate-300 transition-all duration-200 focus:outline-slate-400 focus:ring-2 focus:ring-slate-50"
+                                            name="reference-email"
+                                            type="email"
+                                            placeholder="Enter reference email"
+                                            required
+                                        />
+                                    </div>
+                                </div>
+                                <div class="flex flex-col gap-2">
+                                    <label
+                                        class="text-sm text-slate-600"
+                                        for="company-name"
+                                        >Company Name (Optional)</label
+                                    >
+                                    <input
+                                        id="company-name"
+                                        class="rounded-md p-2 bg-slate-100 outline-1 outline-slate-300 transition-all duration-200 focus:outline-slate-400 focus:ring-2 focus:ring-slate-50"
+                                        name="company-name"
+                                        type="text"
+                                        placeholder="Enter company name"
+                                    />
+                                </div>
+                                <h3 class="font-semibold pb-4">Testimonial</h3>
+                                <div class="flex flex-col gap-2">
+                                    <label
+                                        class="text-sm text-slate-600"
+                                        for="rating"
+                                        >Rating (Optional)</label
+                                    >
+                                    <input
+                                        id="rating"
+                                        class="rounded-md p-2 bg-slate-100 outline-1 outline-slate-300 transition-all duration-200 focus:outline-slate-400 focus:ring-2 focus:ring-slate-50"
+                                        name="rating"
+                                        type="number"
+                                        min="0"
+                                        max="5"
+                                        placeholder="Enter a rating from 0 to 5"
+                                    />
+                                </div>
+                                <div class="flex flex-col gap-2">
+                                    <label
+                                        class="text-sm text-slate-600"
+                                        for="comment"
+                                        >Comment (Optional)</label
+                                    >
+                                    <textarea
+                                        id="comment"
+                                        class="rounded-md p-2 bg-slate-100 outline-1 outline-slate-300 transition-all duration-200 focus:outline-slate-400 focus:ring-2 focus:ring-slate-50"
+                                        name="comment"
+                                        placeholder="Enter your comment"
+                                    ></textarea>
+                                </div>
+                                <button
+                                    id="create-reference"
+                                    class="bg-slate-600 text-slate-200 text-sm font-semibold p-2 rounded-lg"
+                                    type="submit"
+                                >
+                                    Create Reference
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </section>
+                <section id="contact">
+                    <h2 class="py-4 text-xl font-bold">Contact Me</h2>
+                    <form class="flex-1 md:max-w-[600px] mx-auto" method="POST">
+                        <div class="flex flex-col gap-4">
+                            <div class="flex gap-4">
+                                <div class="flex flex-1 flex-col gap-2">
+                                    <label
+                                        class="text-sm text-slate-600"
+                                        for="first-name"
+                                        >First Name</label
+                                    >
+                                    <input
+                                        id="first-name"
+                                        class="rounded-md p-2 bg-slate-100 outline-1 outline-slate-300 transition-all duration-200 focus:outline-slate-400 focus:ring-2 focus:ring-slate-50"
+                                        type="text"
+                                        name="first-name"
+                                        placeholder="Enter your first name"
+                                        required
+                                    />
+                                </div>
+                                <div class="flex flex-1 flex-col gap-2">
+                                    <label
+                                        class="text-sm text-slate-600"
+                                        for="last-name"
+                                        >Last Name</label
+                                    >
+                                    <input
+                                        id="last-name"
+                                        class="rounded-md p-2 bg-slate-100 outline-1 outline-slate-300 transition-all duration-200 focus:outline-slate-400 focus:ring-2 focus:ring-slate-50"
+                                        type="text"
+                                        name="last-name"
+                                        placeholder="Enter your last name"
+                                        required
+                                    />
+                                </div>
+                            </div>
+                            <div class="flex gap-4">
+                                <div class="flex flex-1 flex-col gap-2">
+                                    <label
+                                        class="text-sm text-slate-600"
+                                        for="subject"
+                                        >Subject</label
+                                    >
+                                    <select
+                                        id="subject"
+                                        class="rounded-md p-2 bg-slate-100 outline-1 outline-slate-300 transition-all duration-200 focus:outline-slate-400 focus:ring-2 focus:ring-slate-50"
+                                        name="subject"
+                                    >
+                                        <option value="inquiry" selected>
+                                            Business Inquiry
+                                        </option>
+                                        <option value="feedback">
+                                            Feedback
+                                        </option>
+                                        <option value="question">
+                                            General Question
+                                        </option>
+                                    </select>
+                                </div>
+                                <div class="flex flex-1 flex-col gap-2">
+                                    <label
+                                        class="text-sm text-slate-600"
+                                        for="email"
+                                        >Email</label
+                                    >
+                                    <input
+                                        id="email"
+                                        class="rounded-md p-2 bg-slate-100 outline-1 outline-slate-300 transition-all duration-200 focus:outline-slate-400 focus:ring-2 focus:ring-slate-50"
+                                        type="email"
+                                        name="email"
+                                        placeholder="Enter your email"
+                                        required
+                                    />
+                                </div>
+                            </div>
+                            <div class="flex flex-col gap-2">
+                                <label
+                                    class="text-sm text-slate-600"
+                                    for="message"
+                                    >Message</label
+                                >
+                                <textarea
+                                    id="message"
+                                    class="rounded-md p-2 bg-slate-100 outline-1 outline-slate-300 transition-all duration-200 focus:outline-slate-400 focus:ring-2 focus:ring-slate-50"
+                                    name="message"
+                                    placeholder="Enter your message"
+                                    required
+                                ></textarea>
+                            </div>
+                            <button
+                                id="contact-me"
+                                class="bg-slate-600 text-slate-200 text-sm font-semibold p-2 rounded-lg"
+                                type="submit"
+                            >
+                                Contact Me
+                            </button>
+                        </div>
+                    </form>
+                </section>
+            </div>
+        </main>
+        <footer class="flex justify-center p-4 bg-slate-700 text-slate-200">
+            <p>&copy; Copyright 2026</p>
+        </footer>
+    </body>
+</html>
