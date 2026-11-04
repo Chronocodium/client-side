@@ -39,7 +39,7 @@
                 </div>
             </div>
         </header>
-        <main class="w-full p-4 md:p-8 bg-slate-200 text-slate-800">
+        <main class="w-full p-4 pb-16 md:p-16 bg-slate-200 text-slate-800">
             <div class="flex flex-col gap-4 md:gap-8 mx-auto max-w-[1200px]">
                 <section id="bio">
                     <h2 class="py-4 text-xl font-bold">Bio</h2>
@@ -64,37 +64,45 @@
                 </section>
                 <section id="references">
                     <h2 class="py-4 text-xl font-bold">References</h2>
-                    <h3 class="font-semibold pb-4">
+                    <h3
+                        class="text-sm font-semibold italic text-slate-600 pb-4"
+                    >
                         Average Rating:
                         <span id="average-rating"></span>
                     </h3>
-                    <div class="flex gap-8">
+                    <div class="flex flex-col gap-8 md:flex-row">
                         <ul
                             id="references-list"
-                            class="flex flex-col gap-4"
+                            class="flex flex-1 flex-col gap-4"
                         ></ul>
-                        <form id="reference-form" method="POST">
+                        <form id="reference-form" class="flex-1" method="POST">
                             <div class="flex flex-col gap-4">
                                 <h3 class="font-semibold pb-4">Reference</h3>
                                 <div class="flex gap-4">
-                                    <div class="input-group">
-                                        <label for="reference-name"
+                                    <div class="flex flex-1 flex-col gap-2">
+                                        <label
+                                            class="text-sm text-slate-600"
+                                            for="reference-name"
                                             >Reference Name</label
                                         >
                                         <input
                                             id="reference-name"
+                                            class="rounded-md p-2 bg-slate-100 outline-1 outline-slate-300 transition-all duration-200 focus:outline-slate-400 focus:ring-2 focus:ring-slate-50"
                                             name="reference-name"
                                             type="text"
                                             placeholder="Enter reference name"
                                             required
                                         />
                                     </div>
-                                    <div class="input-group">
-                                        <label for="reference-email"
+                                    <div class="flex flex-1 flex-col gap-2">
+                                        <label
+                                            class="text-sm text-slate-600"
+                                            for="reference-email"
                                             >Reference Email</label
                                         >
                                         <input
                                             id="reference-email"
+                                            class="rounded-md p-2 bg-slate-100 outline-1 outline-slate-300 transition-all duration-200 focus:outline-slate-400 focus:ring-2 focus:ring-slate-50"
                                             name="reference-email"
                                             type="email"
                                             placeholder="Enter reference email"
@@ -102,24 +110,30 @@
                                         />
                                     </div>
                                 </div>
-                                <div class="input-group">
-                                    <label for="company-name"
+                                <div class="flex flex-col gap-2">
+                                    <label
+                                        class="text-sm text-slate-600"
+                                        for="company-name"
                                         >Company Name (Optional)</label
                                     >
                                     <input
                                         id="company-name"
+                                        class="rounded-md p-2 bg-slate-100 outline-1 outline-slate-300 transition-all duration-200 focus:outline-slate-400 focus:ring-2 focus:ring-slate-50"
                                         name="company-name"
                                         type="text"
                                         placeholder="Enter company name"
                                     />
                                 </div>
                                 <h3 class="font-semibold pb-4">Testimonial</h3>
-                                <div class="input-group">
-                                    <label for="rating"
+                                <div class="flex flex-col gap-2">
+                                    <label
+                                        class="text-sm text-slate-600"
+                                        for="rating"
                                         >Rating (Optional)</label
                                     >
                                     <input
                                         id="rating"
+                                        class="rounded-md p-2 bg-slate-100 outline-1 outline-slate-300 transition-all duration-200 focus:outline-slate-400 focus:ring-2 focus:ring-slate-50"
                                         name="rating"
                                         type="number"
                                         min="0"
@@ -127,17 +141,24 @@
                                         placeholder="Enter a rating from 0 to 5"
                                     />
                                 </div>
-                                <div class="input-group">
-                                    <label for="comment"
+                                <div class="flex flex-col gap-2">
+                                    <label
+                                        class="text-sm text-slate-600"
+                                        for="comment"
                                         >Comment (Optional)</label
                                     >
                                     <textarea
                                         id="comment"
+                                        class="rounded-md p-2 bg-slate-100 outline-1 outline-slate-300 transition-all duration-200 focus:outline-slate-400 focus:ring-2 focus:ring-slate-50"
                                         name="comment"
                                         placeholder="Enter your comment"
                                     ></textarea>
                                 </div>
-                                <button id="create-reference" type="submit">
+                                <button
+                                    id="create-reference"
+                                    class="bg-slate-600 text-slate-200 text-sm font-semibold p-2 rounded-lg"
+                                    type="submit"
+                                >
                                     Create Reference
                                 </button>
                             </div>
@@ -145,66 +166,102 @@
                     </div>
                 </section>
                 <section id="contact">
-                    <h2 class="py-4 text-xl">Contact Me</h2>
-                    <form method="POST">
-                        <div class="input-row">
-                            <div class="input-group">
-                                <label for="first-name">First Name</label>
-                                <input
-                                    id="first-name"
-                                    type="text"
-                                    name="first-name"
-                                    placeholder="Enter your first name"
+                    <h2 class="py-4 text-xl font-bold">Contact Me</h2>
+                    <form class="flex-1 md:max-w-[600px] mx-auto" method="POST">
+                        <div class="flex flex-col gap-4">
+                            <div class="flex gap-4">
+                                <div class="flex flex-1 flex-col gap-2">
+                                    <label
+                                        class="text-sm text-slate-600"
+                                        for="first-name"
+                                        >First Name</label
+                                    >
+                                    <input
+                                        id="first-name"
+                                        class="rounded-md p-2 bg-slate-100 outline-1 outline-slate-300 transition-all duration-200 focus:outline-slate-400 focus:ring-2 focus:ring-slate-50"
+                                        type="text"
+                                        name="first-name"
+                                        placeholder="Enter your first name"
+                                        required
+                                    />
+                                </div>
+                                <div class="flex flex-1 flex-col gap-2">
+                                    <label
+                                        class="text-sm text-slate-600"
+                                        for="last-name"
+                                        >Last Name</label
+                                    >
+                                    <input
+                                        id="last-name"
+                                        class="rounded-md p-2 bg-slate-100 outline-1 outline-slate-300 transition-all duration-200 focus:outline-slate-400 focus:ring-2 focus:ring-slate-50"
+                                        type="text"
+                                        name="last-name"
+                                        placeholder="Enter your last name"
+                                        required
+                                    />
+                                </div>
+                            </div>
+                            <div class="flex gap-4">
+                                <div class="flex flex-1 flex-col gap-2">
+                                    <label
+                                        class="text-sm text-slate-600"
+                                        for="subject"
+                                        >Subject</label
+                                    >
+                                    <select
+                                        id="subject"
+                                        class="rounded-md p-2 bg-slate-100 outline-1 outline-slate-300 transition-all duration-200 focus:outline-slate-400 focus:ring-2 focus:ring-slate-50"
+                                        name="subject"
+                                    >
+                                        <option value="inquiry" selected>
+                                            Business Inquiry
+                                        </option>
+                                        <option value="feedback">
+                                            Feedback
+                                        </option>
+                                        <option value="question">
+                                            General Question
+                                        </option>
+                                    </select>
+                                </div>
+                                <div class="flex flex-1 flex-col gap-2">
+                                    <label
+                                        class="text-sm text-slate-600"
+                                        for="email"
+                                        >Email</label
+                                    >
+                                    <input
+                                        id="email"
+                                        class="rounded-md p-2 bg-slate-100 outline-1 outline-slate-300 transition-all duration-200 focus:outline-slate-400 focus:ring-2 focus:ring-slate-50"
+                                        type="email"
+                                        name="email"
+                                        placeholder="Enter your email"
+                                        required
+                                    />
+                                </div>
+                            </div>
+                            <div class="flex flex-col gap-2">
+                                <label
+                                    class="text-sm text-slate-600"
+                                    for="message"
+                                    >Message</label
+                                >
+                                <textarea
+                                    id="message"
+                                    class="rounded-md p-2 bg-slate-100 outline-1 outline-slate-300 transition-all duration-200 focus:outline-slate-400 focus:ring-2 focus:ring-slate-50"
+                                    name="message"
+                                    placeholder="Enter your message"
                                     required
-                                />
+                                ></textarea>
                             </div>
-                            <div class="input-group">
-                                <label for="last-name">Last Name</label>
-                                <input
-                                    id="last-name"
-                                    type="text"
-                                    name="last-name"
-                                    placeholder="Enter your last name"
-                                    required
-                                />
-                            </div>
+                            <button
+                                id="contact-me"
+                                class="bg-slate-600 text-slate-200 text-sm font-semibold p-2 rounded-lg"
+                                type="submit"
+                            >
+                                Contact Me
+                            </button>
                         </div>
-                        <div class="input-row">
-                            <div class="input-group">
-                                <label for="subject">Subject</label>
-                                <select id="subject" name="subject">
-                                    <option value="inquiry" selected>
-                                        Business Inquiry
-                                    </option>
-                                    <option value="feedback">Feedback</option>
-                                    <option value="question">
-                                        General Question
-                                    </option>
-                                </select>
-                            </div>
-                            <div class="input-group">
-                                <label for="email">Email</label>
-                                <input
-                                    id="email"
-                                    type="email"
-                                    name="email"
-                                    placeholder="Enter your email"
-                                    required
-                                />
-                            </div>
-                        </div>
-                        <div class="input-group">
-                            <label for="message">Message</label>
-                            <textarea
-                                id="message"
-                                name="message"
-                                placeholder="Enter your message"
-                                required
-                            ></textarea>
-                        </div>
-                        <button id="contact-me" type="submit">
-                            Contact Me
-                        </button>
                     </form>
                 </section>
             </div>

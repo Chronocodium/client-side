@@ -196,7 +196,7 @@ class Testimonial extends DatabaseObject {
     }
 
     toString() {
-        return `${this.rating} Stars: ${this.comment}`;
+        return `<span class="font-bold not-italic">${this.rating} Stars:</span> "${this.comment}"`;
     }
 
     static create(params) {
@@ -357,7 +357,7 @@ const ratingTotal = testimonials.reduce(
 const averageRating = ratingTotal / testimonials.length;
 
 const averageRatingDisplay = document.getElementById("average-rating");
-averageRatingDisplay.innerText = averageRating.toFixed(1);
+averageRatingDisplay.innerText = `${averageRating.toFixed(1)} Stars`;
 
 /*  Display Reference List and Testimonials  */
 
@@ -365,16 +365,17 @@ const referencesList = document.getElementById("references-list");
 
 for (let i = 0; i < references.length; i++) {
     const referenceLi = document.createElement("li");
-    const referenceData = document.createElement("h3");
+    const referenceHeading = document.createElement("h3");
+    const referenceBody = document.createElement("p");
     const testimonialList = document.createElement("ul");
 
-    referenceData.setAttribute("class", "text-lg font-semibold");
+    referenceHeading.innerText = `${references[i].name}${
+        references[i].company ? " | " + references[i].company : ""
+    }`;
+    referenceHeading.setAttribute("class", "text-lg font-semibold");
 
-    referenceData.innerText +=
-        references[i].name + " at " + references[i].email;
-    referenceData.innerText += references[i].company
-        ? " with " + references[i].company + " "
-        : "";
+    referenceBody.innerText = `${references[i].email}`;
+    referenceBody.setAttribute("class", "italic");
 
     const referenceTestimonials = testimonials.filter(
         (testimonial) => testimonial.referenceId === references[i].id,
@@ -382,11 +383,12 @@ for (let i = 0; i < references.length; i++) {
 
     referenceTestimonials.forEach((referenceTestimonial) => {
         const testimonialLi = document.createElement("li");
-        testimonialLi.innerText = referenceTestimonial.toString();
+        testimonialLi.innerHTML = `<blockquote class="text-slate-600 italic">${referenceTestimonial.toString()}</blockquote>`;
         testimonialList.appendChild(testimonialLi);
     });
 
-    referenceLi.appendChild(referenceData);
+    referenceLi.appendChild(referenceHeading);
+    referenceLi.appendChild(referenceBody);
     referenceLi.appendChild(testimonialList);
 
     referencesList.appendChild(referenceLi);
